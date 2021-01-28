@@ -1,0 +1,19 @@
+//MULTISELECT QUESTION TYPE,,,,
+//Options must include text in column3,,,,
+,,,,
+NewQuestion,MS,,,
+Title,,,,
+QuestionText,"<p>Consider an instance of Stable Matching with the following preference lists. Suppose that the matching is {A-Y, B-W, C-Z, D-V, E-X} . Select<strong> all</strong> pairs that are unstable with respect to this matching.</p>
+<p>A: X,Y,Z,V,W<br />B: X,Z,Y,W,V<br />C: X,Y,V,W,Z<br />D:Y,W,X,V,Z<br />E:X,Y,V,W,Z</p>
+<p>V:A,C,B,E,D<br />W:C,E,B,A,D<br />X:A,E,D,C,B<br />Y:C,D,E,B,A<br />Z:B,A,C,E,D</p>",,,
+Points,8,,,
+Difficulty,1,,,
+Scoring,RightAnswers,,,
+Option,0,A-Y,,A pair in a matching is always stable
+Option,1,A-X,,Unstable: both prefer each other to their match
+Option,0,B-V,,Stable: the hospital would not want to switch
+Option,0,V-W,,Every pair should consist of one hospital and one student
+Option,1,B-Z,,Unstable: both prefer each other to their match
+Option,0,D-W,,Stable: the student would not want to switch
+Option,1,B-Y,,Unstable: both prefer each other to their match
+Option,0,None of these pairs is unstable ,,
