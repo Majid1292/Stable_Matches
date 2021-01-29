@@ -24,7 +24,7 @@ def stable_matching_bf(
     hospital_pref -- dict[str, list[str]]. Hospital preferences.
     """
     s_rank = pref_to_rank(student_pref)
-    f_rank = pref_to_rank(hospital_pref)
+    h_rank = pref_to_rank(hospital_pref)
     #
     s_seq = tuple(students)
     perm = permutations(s_seq)
@@ -35,10 +35,10 @@ def stable_matching_bf(
     s_seq=list_s_seq[rnd]
     matchings = (
         [
-            Pair(student=s, hospital=f)
-            for s, f in zip(s_seq, f_seq)
+            Pair(student=s, hospital=h)
+            for s, h in zip(s_seq, h_seq)
         ]
-        for f_seq in permutations(hospitals)
+        for h_seq in permutations(hospitals)
     )
     flag=True
     for matching in matchings:
@@ -49,13 +49,13 @@ def stable_matching_bf(
         match_f = {pair.hospital: pair for pair in matching}
         unstable1 = (
             (
-                    s_rank[s][f] < s_rank[s][match_s[s].hospital] and
-                    f_rank[f][s] < f_rank[f][match_f[f].student]
+                    s_rank[s][h] < s_rank[s][match_s[s].hospital] and
+                    h_rank[h][s] < h_rank[h][match_f[h].student]
             )
             for s in students
-            for f in hospitals
-            if s != match_f[f].student
-            if f != match_s[s].hospital
+            for h in hospitals
+            if s != match_f[h].student
+            if h != match_s[s].hospital
         )
         unstable= any(unstable1)
         list_s_seq1 = []
